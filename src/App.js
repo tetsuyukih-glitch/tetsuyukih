@@ -181,6 +181,7 @@ function CalcPage({ master, settings }) {
 
   const [showPdf, setShowPdf] = useState(false);
 
+  // eslint-disable-next-line no-unused-vars
   const buildPdfData = () => {
     const engRowsHtml = rows.filter(r=>r.days>0||r.rankName).map(r=>`<tr><td>${r.rankName||"—"}</td><td style="text-align:right">${num(r.days)}</td><td style="text-align:right">${yen(r.s)}</td><td style="text-align:right">${yen(r.gp)}</td><td style="text-align:right">${r.gpr.toFixed(1)}%</td></tr>`).join("");
     const bpRowsHtml  = bpRows.filter(b=>b.days>0||b.name).map(b=>`<tr style="background:#fafcff"><td><span style="font-size:10px;background:#e5f3ff;color:#007aff;border-radius:4px;padding:1px 5px;margin-right:4px">BP</span>${b.name||"—"}</td><td style="text-align:right">${num(b.days)}</td><td style="text-align:right">${yen(b.totalSellBp)}</td><td style="text-align:right">${yen(b.totalGpBp)}</td><td style="text-align:right">${b.gpr.toFixed(1)}%</td></tr>`).join("");
